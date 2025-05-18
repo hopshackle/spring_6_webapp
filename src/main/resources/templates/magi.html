@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>All Magi</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Born</th>
+        <th>Died</th>
+        <th>House</th>
+        <th>Library</th>
+    </tr>
+    <tr th:each="magus : ${allMagi}">
+        <td th:text="${magus.id}">id</td>
+        <td th:text="${magus.name}">Name</td>
+        <td th:text="${magus.birthYear}">Born</td>
+        <td th:text="${magus.deathYear}">Died</td>
+        <td th:text="${magus.house}">House</td>
+        <td th:text="${magus.booksOwned.size}"></td>
+
+    </tr>
+</table>
+
+</body>
+</html>
