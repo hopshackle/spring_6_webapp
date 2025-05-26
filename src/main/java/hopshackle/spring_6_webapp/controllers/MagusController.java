@@ -1,6 +1,6 @@
 package hopshackle.spring_6_webapp.controllers;
 
-import hopshackle.spring_6_webapp.services.BookService;
+import hopshackle.spring_6_webapp.domain.Magus;
 import hopshackle.spring_6_webapp.services.MagusService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +16,13 @@ public class MagusController {
     }
 
     @RequestMapping("/magi")
-    public String getMagus(Model model) {
+    public String allMagiHtml(Model model) {
         model.addAttribute("allMagi", magusService.findAll());
         return "magi";  // this returns the name of the HTML template to be rendered
+    }
+
+    @RequestMapping("/api/magi")
+    public Iterable<Magus> allMagi() {
+        return magusService.findAll();
     }
 }
